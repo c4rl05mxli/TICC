@@ -179,7 +179,7 @@ void ticc_setup() {
       Serial.println("#time interval A->B (seconds)");
       break;
     case Period:
-      Serial.println("# period (seconds)");
+     // Serial.println("# period (seconds)");
       break;
     case timeLab:
       Serial.println("# timestamp chA, chB; interval chA->B (seconds)");
@@ -266,8 +266,10 @@ void loop() {
            break;
        
            case Period:
+             Serial.write(0x02);
              print_signed_picos_as_seconds(channels[i].period);
-             Serial.print( " ch");Serial.println(channels[i].ID);
+             Serial.write(0x03);
+             //Serial.print( " ch");Serial.println(channels[i].ID);
            break;
        
            case timeLab:
